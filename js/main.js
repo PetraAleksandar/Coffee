@@ -21,7 +21,7 @@ function(err, data) {
   } else {
     for(var i=0;i<10;i++){
       var img = data.response.groups[0].items[i].venue.photos.groups[0].items[0].prefix+"300x300"+data.response.groups[0].items[i].venue.photos.groups[0].items[0].suffix;
-      result.innerHTML += "<div class='list'><h1>" + data.response.groups[0].items[i].venue.name + "</h1><h3>" + data.response.groups[0].items[i].venue.location.distance + "</h3><img src="+img+"></div>";
+      result.innerHTML += "<div class='list'><div class='info'><h1>" + data.response.groups[0].items[i].venue.name + "</h1><h3>" + data.response.groups[0].items[i].venue.location.distance + " m</h3></div><img src="+img+"></div>";
     }
   }
 });
