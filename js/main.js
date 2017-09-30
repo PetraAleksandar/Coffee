@@ -7,8 +7,8 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      latitude = pos.lat;
-      longitude = pos.lng;
+      latitude = 44.8;
+      longitude = 20.46 ;
       link = 'https://api.foursquare.com/v2/venues/explore?client_id=XEDDHYATVRKSYW13C5HAEETLPRYAQTAPYRWWUEBZ4WZ3PRNY &client_secret=5TSQ0XOYK4HDVPJSLWC30I5DADXHHPFG54GHU30IBGYNHUKJ &ll='+latitude+','+longitude+' &query=coffee &radius=1000 &openNow=1 &venuePhotos=1 &sortByDistance=1 &oauth_token=MKKKAZSMP4C3CCJUPHGERNQFSMUNRPSLTNEAUQKIYEITBBJR&v=20170930';
       var getJSON = function(url, callback) {
           var xhr = new XMLHttpRequest();
