@@ -7,9 +7,9 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      latitude = 44.8;
-      longitude = 20.46 ;
-      link = 'https://api.foursquare.com/v2/venues/explore?client_id=XEDDHYATVRKSYW13C5HAEETLPRYAQTAPYRWWUEBZ4WZ3PRNY &client_secret=5TSQ0XOYK4HDVPJSLWC30I5DADXHHPFG54GHU30IBGYNHUKJ &ll='+latitude+','+longitude+' &query=coffee &radius=1000 &openNow=1 &venuePhotos=1 &sortByDistance=1 &oauth_token=MKKKAZSMP4C3CCJUPHGERNQFSMUNRPSLTNEAUQKIYEITBBJR&v=20170930';
+      latitude = 44.8042;
+      longitude = 20.468;
+      link = 'https://api.foursquare.com/v2/venues/explore?client_id=XEDDHYATVRKSYW13C5HAEETLPRYAQTAPYRWWUEBZ4WZ3PRNY &client_secret=5TSQ0XOYK4HDVPJSLWC30I5DADXHHPFG54GHU30IBGYNHUKJ &ll='+latitude+','+longitude+' &query=coffee &radius=1000 &openNow=1 &venuePhotos=1 &sortByDistance=1 &v=20171001';
       var getJSON = function(url, callback) {
           var xhr = new XMLHttpRequest();
           xhr.open('GET', url, true);
@@ -44,12 +44,13 @@ function initMap() {
             removeDiv[0].parentNode.removeChild(removeDiv[0]);
           }
           for (i = 0; i < 10; i++) {
+            if(typeof(data.response.groups[0].items[i].venue.price) != "undefined")
             divs.push(data.response.groups[0].items[i]);
           }
           divs.sort(function (a,b){
             return b.venue.price.tier - a.venue.price.tier;
           });
-          for (i = 0; i < 10; i++) {
+          for (i = 0; i < divs.length; i++) {
             var img = divs[i].venue.photos.groups[0].items[0].prefix+"300x300"+divs[i].venue.photos.groups[0].items[0].suffix;
             result.innerHTML += "<div class='list'><div class='info'><h1>" + divs[i].venue.name + "</h1><h3>" + divs[i].venue.location.distance + " m</h3></div><img src="+img+"></div>";
 
@@ -76,9 +77,9 @@ function initMap() {
         };
       });
     },function() {
-        handleLocationError(true, infoWindow);
+         alert('Error: The Geolocation service failed. Refresh page and allow geolocation');
       });
   } else {
-      handleLocationError(false, infoWindow);
+      alert('Error: Your browser doesn\'t support geolocation.');
     }
 }
