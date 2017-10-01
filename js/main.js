@@ -58,10 +58,10 @@ function initMap() {
             $venueId = data.response.groups[0].items[$position].venue.id;
             $photoLink = 'https://api.foursquare.com/v2/venues/'+$venueId+'/photos?v=20171001';
             $tips = [];
-            if(data.response.groups[0].items[$position].tips[0].text.indexOf("kafa") != -1){
+            if(data.response.groups[0].items[$position].tips[0].text.indexOf("kafa") != -1 || data.response.groups[0].items[$position].tips[0].text.indexOf("coffee") != -1){
               $tips.push(data.response.groups[0].items[$position].tips[0].text);
             }else{
-              $tips.push("There is no cofee related tips");
+              $tips.push("There is no coffee related tips");
             }
             $("#cont").append( "<div class='detailsContainer'><div class='info'><h1>"+ data.response.groups[0].items[$position].venue.name +"</h1><h3> distance: " + data.response.groups[0].items[$position].venue.location.distance + " m</h3><h3>prices: "+data.response.groups[0].items[$position].venue.price.message+"<h3><h3>tips: "+$tips+"</div><span class='close'>&times;</span></div>");
             $('.close').on('click', function(){
