@@ -23,6 +23,42 @@
       }
     }
   }
+  .detailsContainer{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 100%;
+    .close{
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .info, .tip{
+      margin: 0 auto;
+      position: relative;
+      width: 650px;
+      text-align: center;
+      h1, h3{
+        color: #BEBEBE;
+        margin: 0;
+      }
+      h1{
+        font-size: 50px;
+      }
+    }
+    .tip{
+      bottom: 0;
+    }
+  }
   .list{
     height: 300px;
     margin: 0 auto;
@@ -54,6 +90,36 @@
       height: 200px;
       position: relative;
       border-radius: 50px;
+    }
+  }
+  @media (max-width: 767px){
+    .myDiv{
+      width: 400px;
+      .btn{
+        width: 200px;
+      }
+    }
+    .detailsContainer{
+      .info,.tip{
+        width: 250px;
+      }
+    }
+    .list{
+      height: 200px;
+      width: 400px;
+      display: inline-block;
+      .info{
+        padding-left: 5px;
+        h1{
+          width: 100px;
+        }
+      }
+      img{
+        width: 150px;
+        height: 150px;
+        padding-right: 2px;
+        border-radius: 10px;
+      }
     }
   }
 }
